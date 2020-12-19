@@ -1,3 +1,4 @@
+#define GL_SILENCE_DEPRECATION
 // OpenGL/GLUT starter kit for Windows 7 and Visual Studio 2010
 // Created spring, 2011
 //
@@ -14,7 +15,7 @@
 #include <iostream>
 #include <cmath>
 #include <cstring>
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <stdio.h>
 #include "graphics.h"
 #include "gameboard.h"
@@ -24,7 +25,7 @@
 using namespace std;
 // Global Variables (Only what you need!)
 double screen_x = 1024;
-double screen_y = 768; 
+double screen_y = 768;
 
 bool STARTED = false;
 bool COMPUTER = false;
@@ -42,7 +43,7 @@ PoisonCookie POISON = PoisonCookie(GAME_X, GAME_Y);
 Board BOARD(&POISON);
 //Menu MENU = Menu(-0.5,-1.5);
 
-// 
+//
 // Functions that draw basic primitives
 //
 //
@@ -102,11 +103,11 @@ void DrawText(double x, double y, const char *string) {
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
-	
+
 	int len, i;
 	glRasterPos2d(x, y);
 	len = (int) strlen(string);
-	for (i = 0; i < len; i++) 
+	for (i = 0; i < len; i++)
 	{
 		glutBitmapCharacter(font, string[i]);
 	}
@@ -125,9 +126,9 @@ void display(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	glColor3d(93.0/255, 64.0/255, 55.0/255); // #5D4037
-	DrawRectangle(-.5, -.5, GAME_X+.5, GAME_Y+.5); 
+	DrawRectangle(-.5, -.5, GAME_X+.5, GAME_Y+.5);
 	glColor3d(215.0/255, 204.0/255, 200.0/255); // #D7CCC8
-	DrawRectangle(0, 0, GAME_X, GAME_Y); 
+	DrawRectangle(0, 0, GAME_X, GAME_Y);
 
 	BOARD.updateCookies();
 	BOARD.Draw();
@@ -171,7 +172,7 @@ void display(void)
 // system whenever a key is pressed.
 void keyboard(unsigned char c, int x, int y) {
 	//int mx, my;
-	switch (c) 
+	switch (c)
 	{
 		case 27: // escape character means to quit the program
 			exit(0);
@@ -291,12 +292,12 @@ int main(int argc, char **argv)
 	glutInitWindowPosition(50, 50);
 
 	int fullscreen = 0;
-	if (fullscreen) 
+	if (fullscreen)
 	{
 		glutGameModeString("800x600:32");
 		glutEnterGameMode();
-	} 
-	else 
+	}
+	else
 	{
 		glutCreateWindow("Poison Cookie");
 	}

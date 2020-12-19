@@ -1,4 +1,5 @@
-#include <GL/glut.h>
+#define GL_SILENCE_DEPRECATION
+#include <GLUT/glut.h>
 #include <unistd.h>
 #include "graphics.h"
 #include "gameboard.h"

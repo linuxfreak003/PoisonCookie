@@ -1,6 +1,7 @@
 CXX := g++
 CXXFLAGS := -std=c++11 -Wall -Werror -g
-LDFLAGS := -lGL -lGLU -lglut
+#LDFLAGS := -lGL -lGLU -lglut #Linux flags
+LDFLAGS := -framework GLUT -framework OpenGL -framework Cocoa
 TARGET := PoisonCookie
 VERSION := 1.2
 
